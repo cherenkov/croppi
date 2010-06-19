@@ -46,12 +46,13 @@ post '/' do
   end
 
 
+=begin
   #?秒後に削除。
   Thread.new do
     sleep(5);
     File.delete("tmp/images/#{filename}")
   end
-
+=end
 
   #send_fileは内部でhaltするので最後に書く。
   send_file("tmp/images/#{filename}", :disposition => "attachment")
