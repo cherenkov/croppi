@@ -91,8 +91,6 @@ function sliderEvent() {
 
 
 
-//前回の選択領域を消去せよ
-
 function loadImage(data, fileName) {
 
     //dataURIを流し込む前に隠す
