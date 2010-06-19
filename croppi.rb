@@ -41,6 +41,7 @@ post '/' do
 
 
   #imagesフォルダに保存
+  #public/images
   open("tmp/myfile_#{Process.pid}/#{filename}","wb") do |fh|
     fh.write imagedata
   end
