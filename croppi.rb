@@ -5,8 +5,8 @@ require 'base64'
 require 'kconv'
 
 # reloader
-require 'sinatra/base'
-require 'sinatra/reloader' if development?
+#require 'sinatra/base'
+#require 'sinatra/reloader' if development?
 
 
 get '/' do
