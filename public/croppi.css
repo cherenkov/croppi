@@ -1,0 +1,82 @@
+#c1 {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 0;
+  border: 3px dotted pink;
+  z-index: 299;
+}
+
+
+#bo {
+  text-align: center;
+
+}
+
+#zo {
+  position: relative;
+}
+
+#scale {
+
+}
+
+#area {
+  margin: 0 auto;
+  position: relative;
+}
+
+#back {
+  margin: 0 auto;
+  /*position: absolute;*/
+  background-color: whitesmoke;
+}
+
+
+#sl {
+  width: 120px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#sc {
+  margin: 2px 20px 0;
+}
+
+#cb {
+
+}
+
+#cropBtn {
+}
+
+
+#footer_menu {
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  background: lightgrey;
+  z-index: 300;
+}
+
+
+/* footer_menuの子divにwidthを指定せよ。*/
+#footer_menu > div {
+  float: left;
+}
+
+
+
+
+/*
+#area {
+  margin: 0 auto;
+  text-align: center;
+
+  border: thick dotted gray;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+*/
