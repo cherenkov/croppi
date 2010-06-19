@@ -32,7 +32,7 @@ post '/' do
 
 
 
-=begin
+=begin tmpになっていないの注意
   #imagesディレクトリが無かった場合は作成
   unless test(?d, "public/images") then
     Dir::mkdir("public/images")
@@ -41,7 +41,7 @@ post '/' do
 
 
   #imagesフォルダに保存
-  open("public/images/#{filename}","wb") do |fh|
+  open("tmp/images/#{filename}","wb") do |fh|
     fh.write imagedata
   end
 
@@ -49,12 +49,12 @@ post '/' do
   #?秒後に削除。
   Thread.new do
     sleep(5);
-    File.delete("public/images/#{filename}")
+    File.delete("tmp/images/#{filename}")
   end
 
 
   #send_fileは内部でhaltするので最後に書く。
-  send_file("public/images/#{filename}", :disposition => "attachment")
+  send_file("tmp/images/#{filename}", :disposition => "attachment")
 
 end
 
