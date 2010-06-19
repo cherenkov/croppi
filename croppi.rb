@@ -42,7 +42,7 @@ post '/' do
 
   #imagesフォルダに保存
   #public/images
-  open("tmp/myfile_#{Process.pid}/#{filename}","wb") do |fh|
+  open("tmp/#{filename}","wb") do |fh|
     fh.write imagedata
   end
 
@@ -56,7 +56,7 @@ post '/' do
 =end
 
   #send_fileは内部でhaltするので最後に書く。
-  send_file("tmp/myfile_#{Process.pid}/#{filename}", :disposition => "attachment")
+  send_file("tmp/#{filename}", :disposition => "attachment")
 
 end
 
