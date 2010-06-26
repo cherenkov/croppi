@@ -9,8 +9,8 @@
 
 
 #bo {
-  text-align: center;
-
+	text-align: center;
+	color: #FFFFFF;
 }
 
 #zo {
@@ -80,3 +80,28 @@
 
 }
 */
+
+body {
+	background-color: #000000;
+}
+h1#title {
+	font-size: 18px;
+	color: #FFFFFF;
+	height: 88px;
+	padding-left: 400px;
+	line-height: 88px;
+	background-image: url(h1.gif);
+	background-repeat: no-repeat;
+	display: block;
+	margin-top: 10px;
+	width: 17em;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 25px;
+}
+h1#title span {
+	display: none;
+}
+div#area img#cimg {
+	margin-bottom: 15px;
+}

@@ -8,7 +8,7 @@ init();
 
 function init() {
 
-  $('#cimg').css({width:"250px", height:"250px", "background":"url('dropme" + (1+Math.floor(Math.random()*2)) + ".gif')"})
+  $('#cimg').css({width:"300px", height:"280px", "background":"url('dropme" + (1+Math.floor(Math.random()*2)) + ".gif')"})
 
   $("#inputFile").val("").change(function(e){
     handleFile(this.files[0]);
