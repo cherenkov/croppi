@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>croppi!</title>
+<script src="jquery-ui-1.8.2/js/jquery-1.4.2.min.js"></script>
+<script src="jquery-ui-1.8.2/js/jquery-ui-1.8.2.custom.min.js"></script>
+<script src="Jcrop/js/jquery.Jcrop.js"></script>
+<script src="jquery-spinbox/jquery.spinbox.js"></script>
+<script src="croppi.js"></script>
+<link rel="stylesheet" href="jquery-ui-1.8.2/css/smoothness/jquery-ui-1.8.2.custom.css" type="text/css" />
+<link rel="stylesheet" href="Jcrop/css/jquery.Jcrop.css" type="text/css" />
+
+<link rel="stylesheet" href="jquery-spinbox/jquery.spinbox.css" type="text/css" />
+<link rel="stylesheet" href="croppi.css" type="text/css" />
+</head>
+<body>
+  <h1 id="title"><span>Croppi!</span>画像を任意のサイズに楽ちんクロップ</h1>
+<div id="bo">
+    <div id="zo">
+      <div id="back"></div>
+      <div id="area">
+        <img name="cimg" id="cimg" src="cimg.gif" />      </div>
+      <input id="inputFile" type="file" />
+    </div>
+    <!--
+    <br />
+    <span id="cropStatus"></span>
+    -->
+  </div>
+  <canvas id="c1"></canvas>
+  <div id="footer_menu">
+    <div id="footer_file">
+
+    </div>
+    <div>
+      <input id="checkBtn" type="checkbox"/>
+      w,h:
+      <input id="inputWidth" size="9" type="text" value="100" />
+      ,
+      <input id="inputHeight" size="9" type="text" value="100" />
+    </div>
+    <div id="sl">
+      <div id="slider"></div>
+
+    </div>
+    <div id="sc">
+      <span id="scale"></span>
+    </div>
+    <div id="cb">
+ああああああああああああああああああああああああああ
+      <form action="" enctype="multipart/form-data" method="post">
+        <input id="form_filename" name="filename" type="hidden" value="" />
+        <input id="form_imagedata" name="imagedata" type="hidden" value="" />
+        <!--<input id="cropBtn" type="submit" value="crop" />-->
+
+        <input id="cropBtn" type="button" value="crop" />
+      </form>
+    </div>
+  </div>
+</body>
+</html>
