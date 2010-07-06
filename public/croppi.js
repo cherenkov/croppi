@@ -50,7 +50,8 @@ function handleFile(dt) {
 }
 
 function changeTitle(name) {
-  $('#title').text("Croppi! / " + name);
+  if (name.length > 10) name = name.substr(0, 15) + '...'
+  $('#description').text(name)
   $('#form_filename').val(name)
 }
 
