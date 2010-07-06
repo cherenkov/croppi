@@ -8,17 +8,13 @@ require 'kconv'
 #require 'sinatra/base'
 #require 'sinatra/reloader' if development?
 
-
 get '/' do
   #htmlファイルを拡張子だけerbに変えてviewsフォルダに入れ以下のようにするとindex表示できる。
   erb :index
   #redirect "index.html"
 end
 
-
-
 post '/' do
-
   #dataURIをバイナリに変換
   imagedata = Base64.decode64(params[:imagedata].gsub(/^data:image\/png;base64,/, ""))
 
@@ -30,8 +26,6 @@ post '/' do
     redirect "/"
   end
 
-
-
 =begin tmpになっていないの注意
   #imagesディレクトリが無かった場合は作成
   unless test(?d, "public/images") then
@@ -39,13 +33,11 @@ post '/' do
   end
 =end
 
-
   #imagesフォルダに保存
   #public/images
   open("tmp/#{filename}","wb") do |fh|
     fh.write imagedata
   end
-
 
   #?秒後に削除。
   Thread.new do
@@ -53,13 +45,6 @@ post '/' do
     File.delete("tmp/#{filename}")
   end
 
-
   #send_fileは内部でhaltするので最後に書く。
   send_file("tmp/#{filename}", :disposition => "attachment")
-
-end
-
-
-not_found do
-  redirect "/"
 end
