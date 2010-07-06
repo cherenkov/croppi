@@ -1,26 +1,17 @@
-
 $(function(){
-
 var api;
-
 init();
 
-
 function init() {
-
   $('#cimg').css({width:"300px", height:"280px", "background":"url('dropme" + (1+Math.floor(Math.random()*2)) + ".gif')"})
-
   $("#inputFile").val("").change(function(e){
     handleFile(this.files[0]);
   });
 
   window.addEventListener("dragover", dragover, true);
   window.addEventListener("drop", drop, true);
-
   sliderEvent();
 }
-
-
 
 function drop(e) {
   var dt = e.dataTransfer;
@@ -55,12 +46,8 @@ function changeTitle(name) {
   $('#form_filename').val(name)
 }
 
-
-
-
 //ページ読み込み後、一回実行。
 function sliderEvent() {
-
   $("#slider").slider({value:100, min:1}).bind("slide", function(event, ui) {
     var d = $.data($('#cimg')[0], "croppi");
     
@@ -90,13 +77,9 @@ function sliderEvent() {
 
 }
 
-
-
 function loadImage(data, fileName) {
-
     //dataURIを流し込む前に隠す
     $(document.body).css({"opacity":0});
-
 
     //dataURI流し込み完了load時に実行されるように。
     $('#cimg').attr('src', data).one("load",function(e){
@@ -105,39 +88,28 @@ function loadImage(data, fileName) {
 
       //footerへ移動をやめて非表示
       $("#inputFile").css("display","none");
-
       $("#footer_menu").css("display","block");
-
 
       //スライダー初期化
       $('#slider').slider("value", 100);
       $('#scale').text("100%");
 
-
-
       //width,heightを"auto"にした後、画像の元サイズを格納
       $(this).width("auto").height("auto");
       $.data($(this)[0], "croppi", {width: $(this).width(), height: $(this).height()});
-
-
 
       $('#area')
         .css("left",0)//縮小情報の初期化
         .height(0) //slide時にページの高さが伸び縮みするバグ。
 
-
-
       //backと位置合わせ。リサイズしたときにtopが効いてくる
       $('#area').width($(this).width()).css("top", $(this).height()*-1)
-
 
       //画像のオリジナルサイズを#backに記録
       $('#back').width($(this).width()).height($(this).height())
 
-
-
       changeTitle(fileName);
-
+      $('#about').hide()
 
       if(api) api.destroy()
       api = setCrop('#cimg');
@@ -145,27 +117,18 @@ function loadImage(data, fileName) {
       if($('#checkBtn').attr('checked'))
         setCropSize();
 
-
-
       //設定が済んで表示
       $(document.body).animate({opacity:1});
-
     }); //load
-
-
 
     //前回cropして保存されたdataURIと選択領域情報の消去
     $('#form_imagedata').val("")
     $.data($('#c1')[0], "croppi", {});
 
-
-
     //bindとスピンボックス化
     $('#inputWidth, #inputHeight').bind('keyup change.spinbox', function(e){
       setTimeout(function(){changeCropSize()},250);
     }).spinbox();
-
-
 
     $('#checkBtn').change(function(){
       if (this.checked)
@@ -179,7 +142,6 @@ function loadImage(data, fileName) {
         $.data($('#c1')[0], "croppi", {x: d.x, y: d.y, w: 0, h: 0});
       }
     });
-
 
     $('#cropBtn').click(function(){
       var d = $.data($('#c1')[0], "croppi");
@@ -197,11 +159,7 @@ function loadImage(data, fileName) {
       $('#form_imagedata').val(dataURI)
       this.form.submit();
     });
-
 }
-
-
-
 
 function draw(c) {
   var canvas = $('#c1').attr({width: c.w, height:c.h});//cssのwidthとattrのwidthの違いに注意。
@@ -215,13 +173,10 @@ function draw(c) {
   var w = parseInt(c.w*(100/scale));
   var h = parseInt(c.h*(100/scale));
 
-
   //選択領域情報を格納。
   $.data($('#c1')[0], "croppi", {x: x, y: y, w: w, h: h});
 
 }
-
-
 
 function setCropSize() {
   var select = getCropSize();
@@ -240,7 +195,6 @@ function setCropSize() {
   api.setSelect([x, y, x2, y2]);
 }
 
-
 function changeCropSize() {
   var select = getCropSize();
   if (!select) return;
@@ -248,7 +202,6 @@ function changeCropSize() {
   var d = api.tellSelect()
   api.animateTo([d.x, d.y, d.x+select.width, d.y+select.height]);
 }
-
 
 function getCropSize() {
   var w = parseInt($('#inputWidth').val())
@@ -260,16 +213,10 @@ function getCropSize() {
     return { width: w, height: h }
 }
 
-
 function setCrop(e) {
   return $.Jcrop(e, { onChange: draw });
 }
-
-
-
 });
-
-
 
 /*
 function showCoords(c) {
@@ -278,4 +225,3 @@ function showCoords(c) {
   $('#cropStatus').text([c.x, c.y, c.x2, c.y2, c.w, c.h].join());
 }
 */
-
