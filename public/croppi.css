@@ -27,9 +27,10 @@
 }
 
 #back {
-  margin: 0 auto;
-  /*position: absolute;*/
+	margin: 0 auto;
+	/*position: absolute;*/
   background-color: whitesmoke;
+	background-image: url(back.gif);
 }
 
 
@@ -44,7 +45,10 @@
 }
 
 #cb {
-
+	margin-bottom: 0px;
+}
+#cb form {
+	height: 6px;
 }
 
 #cropBtn {
@@ -52,11 +56,23 @@
 
 
 #footer_menu {
-  display: none;
-  position: fixed;
-  bottom: 5px;
-  background: lightgrey;
-  z-index: 300;
+	display: none;
+	position: fixed;
+	bottom: 10px;
+	background: lightgrey;
+	z-index: 300;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding-top: 10px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	-moz-box-shadow: 2px 2px 5px #000;
+	-webkit-box-shadow: 5px 5px 5px #000;
+	-o-box-shadow: 5px 5px 5px #000;
+	-box-shadow: 5px 5px 5px #000;
+	margin-left: 10px;
 }
 
 
@@ -83,6 +99,7 @@
 
 body {
 	background-color: #000000;
+	color: #FFFFFF;
 }
 h1#title {
 	font-size: 18px;
@@ -97,9 +114,9 @@ h1#title {
 	width: 17em;
 	margin-right: auto;
 	margin-left: auto;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
-h1#title span {
+h1#title span.name {
 	display: none;
 }
 div#area img#cimg {
