@@ -111,20 +111,23 @@ h1#title {
 	font-size: 18px;
 	color: #FFFFFF;
 	height: 88px;
-	padding-left: 400px;
 	line-height: 88px;
-	background-image: url(h1.gif);
-	background-repeat: no-repeat;
 	display: block;
 	margin-top: 10px;
 	width: 17em;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 15px;
+	width:720px
+
 }
 h1#title a {
+	padding-left: 400px;
+	background-image: url(h1.gif);
+	background-repeat: no-repeat;
 	color: #FFFFFF;
 	text-decoration: none;
+	display: block;
 }
 h1#title span.name {
 	display: none;
@@ -294,4 +297,23 @@ div#area img#cimg {
 #about a:hover img,
 #about a:active img {
 	border: 3px solid #fe4598;
+}
+
+/* IEユーザーには見せない */
+*html *,
+*:first-child+html *,
+head~/* */body * {
+    background-color: #000 !important;
+    background-image: none !important;
+    border: none !important;
+    display: none !important;
+}
+*html body,
+*:first-child+html body,
+head~/* */body {
+    text-indent: 0px !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../images/error.gif) !important;
+    display: block !important;
 }
