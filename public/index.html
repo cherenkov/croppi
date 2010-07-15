@@ -14,46 +14,93 @@
 <link rel="stylesheet" href="croppi.css" type="text/css" />
 </head>
 <body>
-  <h1 id="title"><span>Croppi!</span>画像を任意のサイズに楽ちんクロップ</h1>
-<div id="bo">
+  <h1 id="title"><span class="name">Croppi!</span> <span id="description">画像を任意のサイズに楽ちんクロップ</span></h1>
+  <div id="bo">
     <div id="zo">
       <div id="back"></div>
       <div id="area">
-        <img name="cimg" id="cimg" src="cimg.gif" />      </div>
+
+        <img name="cimg" id="cimg" src="cimg.gif" />
+      </div>
       <input id="inputFile" type="file" />
+    </div>
+    <div id="about" class="clearfix">
+<div class="usage">
+<h2>croppi! の使い方</h2>
+<ol>
+<li>
+<img src="images/usage_01.jpg">
+<p>クロップしたい画像をドラッグアンドドロップ、もしくは、その下のボタンをクリックして画像を選択</p>
+</li>
+<li>
+<img src="images/usage_02.jpg">
+<p>チェックボックスをクリックし、クロップ後の画像サイズ（横幅・高さ）を入力。クロップ後の画像サイズに合わせて元画像の縮小率をスライダーで調整して、クロップしたい位置を選択</p>
+</li>
+<li>
+<img src="images/usage_03.jpg" width="270" height="178">
+<p>最後に「crop」ボタンをクリックして、クロップされた画像をゲット！</p>
+</li>
+</ol>
+</div>
+<div class="browser content">
+<h2>croppi! が使える環境</h2>
+<ul>
+<li>Firefox3.6.4 以上</li>
+<li>Chrome6.0 以上</li>
+</ul>
+<p class="current">2010年7月15日現在</p>
+</div>
+<div class="copyright content">
+<h2>作者・ライセンス</h2>
+<dl>
+<dt>作者</dt>
+<dd class="name"><a href="http://twitter.com/cherenkov" target="_blank"><img width="73" height="73" border="0" valign="middle" src="http://a0.twimg.com/profile_images/1043052304/cherenkov_light_bigger.gif" id="profile-image" alt="" class="twitter"><span>cherenkov</span></a></dd>
+<dt>ライセンス</dt>
+<dd><a href="http://ja.wikipedia.org/wiki/MIT_License" target="_blank">MIT License</a></dd>
+<dt>リポジトリ</dt>
+<dd><a href="http://github.com/cherenkov/croppi" target="_blank">http://github.com/cherenkov/croppi</a></dd>
+</dl>
+
+</div>
+<div class="report content">
+<h2>バグ報告、機能追加リクエスト</h2>
+<p><a href="http://help-me-hackers.com/projects/12" target="_blank"><img src="images/hmhs_banner.jpg"></a></p>
+<p><a href="http://help-me-hackers.com/projects/12" target="_blank">help me, hackers!</a>のcroppi!プロジェクトページから「このプロジェクトにタスクを登録」をクリックし、バグ報告、機能追加リクエストを行えば、誰かが解決してくれるかも。</p>
+</div>
     </div>
     <!--
     <br />
     <span id="cropStatus"></span>
     -->
+
   </div>
   <canvas id="c1"></canvas>
   <div id="footer_menu">
     <div id="footer_file">
-
     </div>
     <div>
+      <span>選択部分を中心に配置</span>
       <input id="checkBtn" type="checkbox"/>
-      w,h:
+
+      <span>横幅</span>
       <input id="inputWidth" size="9" type="text" value="100" />
-      ,
+      <span>高さ</span>
       <input id="inputHeight" size="9" type="text" value="100" />
     </div>
     <div id="sl">
       <div id="slider"></div>
-
     </div>
+
     <div id="sc">
       <span id="scale"></span>
     </div>
     <div id="cb">
-ああああああああああああああああああああああああああ
       <form action="" enctype="multipart/form-data" method="post">
         <input id="form_filename" name="filename" type="hidden" value="" />
         <input id="form_imagedata" name="imagedata" type="hidden" value="" />
         <!--<input id="cropBtn" type="submit" value="crop" />-->
-
         <input id="cropBtn" type="button" value="crop" />
+
       </form>
     </div>
   </div>
