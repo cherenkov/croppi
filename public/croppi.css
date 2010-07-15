@@ -74,9 +74,7 @@
 	-webkit-box-shadow: 5px 5px 5px #000;
 	-o-box-shadow: 5px 5px 5px #000;
 	-box-shadow: 5px 5px 5px #000;
-	margin-left: auto;
 	background-image: url(images/content_bg.gif);
-	margin-right: auto;
 }
 
 
@@ -107,6 +105,7 @@
 body {
 	background-color: #000000;
 	color: #FFFFFF;
+	font-family:'メイリオ',"Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,"ヒラギノ丸ゴ Pro W4",HiraMaruPro-W4,Verdana,HiraMaruPro-W4,"ヒラギノ角ゴ Pro W3",HiraKakuPro-W3,Osaka,sans-serif;
 }
 h1#title {
 	font-size: 18px;
@@ -122,6 +121,10 @@ h1#title {
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 15px;
+}
+h1#title a {
+	color: #FFFFFF;
+	text-decoration: none;
 }
 h1#title span.name {
 	display: none;
