@@ -1,0 +1,4 @@
+vendor/bundle
+relock
+log/*.log
+tmp/*
