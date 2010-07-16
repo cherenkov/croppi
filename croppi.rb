@@ -9,32 +9,23 @@ require 'kconv'
 #require 'sinatra/reloader' if development?
 
 get '/' do
-  #htmlファイルを拡張子だけerbに変えてviewsフォルダに入れ以下のようにするとindex表示できる。
   erb :index
-  #redirect "index.html"
 end
 
 post '/' do
+  #適当なチェック
+  unless params[:imagedata] && params[:filename]
+    redirect "/"
+  end
+
   #dataURIをバイナリに変換
   imagedata = Base64.decode64(params[:imagedata].gsub(/^data:image\/png;base64,/, ""))
 
   #拡張子を除いたファイル名取得し、_c.pngを付け足す。日本語ファイル名文字化け対策にtosjis。
   filename = (File.basename(params[:filename], ".*") + "_c.png").tosjis
 
-  #適当なチェック
-  unless imagedata && filename
-    redirect "/"
-  end
 
-=begin tmpになっていないの注意
-  #imagesディレクトリが無かった場合は作成
-  unless test(?d, "public/images") then
-    Dir::mkdir("public/images")
-  end
-=end
-
-  #imagesフォルダに保存
-  #public/images
+  #tmp/imagesフォルダに保存
   open("tmp/#{filename}","wb") do |fh|
     fh.write imagedata
   end

@@ -7,18 +7,13 @@
   z-index: 299;
 }
 
-
 #bo {
-	text-align: center;
-	color: #FFFFFF;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 #zo {
   position: relative;
-}
-
-#scale {
-
 }
 
 #area {
@@ -27,12 +22,10 @@
 }
 
 #back {
-	margin: 0 auto;
-	/*position: absolute;*/
+  margin: 0 auto;
   background-color: whitesmoke;
-	background-image: url(back.gif);
+  background-image: url(back.gif);
 }
-
 
 #sl {
   width: 120px;
@@ -54,11 +47,9 @@
 	height: 6px;
 }
 
-#cropBtn {
-}
-
 
 #footer_menu {
+	width: 510px;
 	display: none;
 	position: fixed;
 	bottom: 10px;
@@ -75,13 +66,40 @@
 	-o-box-shadow: 5px 5px 5px #000;
 	-box-shadow: 5px 5px 5px #000;
 	background-image: url(images/content_bg.gif);
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
-
-/* footer_menuの子divにwidthを指定せよ。*/
 #footer_menu > div {
   float: left;
 }
+
+.ui-button-text {
+  padding: 3px 5px !important;
+  line-height: normal !important;
+}
+
+#lr, #ud {
+  font-family: "Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,"ヒラギノ丸ゴ Pro W4",HiraMaruPro-W4,Verdana,HiraMaruPro-W4,"ヒラギノ角ゴ Pro W3",HiraKakuPro-W3,Osaka,sans-serif;
+}
+
+#lr {
+  margin-left: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#ud {
+  margin-left: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+#inputWidth, #inputHeight {
+  width: 54px;
+}
+
 #sc span {
 	width:3.5em;
 	display: block;
@@ -89,18 +107,6 @@
 
 
 
-/*
-#area {
-  margin: 0 auto;
-  text-align: center;
-
-  border: thick dotted gray;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-
-}
-*/
 
 body {
 	background-color: #000000;
