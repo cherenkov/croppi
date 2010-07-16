@@ -77,7 +77,9 @@
 }
 
 .ui-button-text {
-  padding: 3px 5px !important;
+  font-size: 1.2em;
+  padding: 0 !important;
+  width: 25px;
   line-height: normal !important;
 }
 
