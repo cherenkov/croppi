@@ -7,32 +7,31 @@ require 'net/http'
 require 'uri'
 
 # reloader
-require 'sinatra/base'
-require 'sinatra/reloader' if development?
+#require 'sinatra/base'
+#require 'sinatra/reloader' if development?
 
 
 before do
-  p "@@@@@@@@@@@"
   if params[:url] then
     uri = URI.parse(URI.encode(params[:url]))
-    Net::HTTP.start(uri.host) {|http|
-      res = http.request_get(uri.path)
-      @api_dataURL = "data:" + res['content-type'] + ";base64," + Base64.encode64(res.body)
-    }
-    @api_fileName = File.basename(uri.path).tosjis
+    begin
+      Net::HTTP.start(uri.host) {|http|
+        res = http.request_get(uri.path)
+        redirect "/" unless res['content-type'].include?("image/")
+
+        @api_dataURL = "data:" + res['content-type'] + ";base64," + Base64.encode64(res.body)
+      }
+      @api_fileName = File.basename(uri.path).tosjis
+    rescue
+      redirect '/'
+    end
   end
 end
-
 
 
 get '/' do
   erb :index
 end
-
-
-
-
-
 
 
 post '/' do
@@ -46,7 +45,6 @@ post '/' do
 
   #拡張子を除いたファイル名取得し、_c.pngを付け足す。日本語ファイル名文字化け対策にtosjis。
   filename = (File.basename(params[:filename], ".*") + "_c.png").tosjis
-
 
   #tmp/imagesフォルダに保存
   open("tmp/#{filename}","wb") do |fh|
@@ -64,7 +62,7 @@ post '/' do
 end
 
 
-
-
-#@@@@ マッチしないリクエストは'/'にリダイレクト。
+not_found do
+  redirect '/'
+end
 
