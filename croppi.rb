@@ -3,14 +3,37 @@ require 'rubygems'
 require 'sinatra'
 require 'base64'
 require 'kconv'
+require 'net/http'
+require 'uri'
 
 # reloader
-#require 'sinatra/base'
-#require 'sinatra/reloader' if development?
+require 'sinatra/base'
+require 'sinatra/reloader' if development?
+
+
+before do
+  p "@@@@@@@@@@@"
+  if params[:url] then
+    uri = URI.parse(URI.encode(params[:url]))
+    Net::HTTP.start(uri.host) {|http|
+      res = http.request_get(uri.path)
+      @api_dataURL = "data:" + res['content-type'] + ";base64," + Base64.encode64(res.body)
+    }
+    @api_fileName = File.basename(uri.path).tosjis
+  end
+end
+
+
 
 get '/' do
   erb :index
 end
+
+
+
+
+
+
 
 post '/' do
   #適当なチェック
@@ -39,3 +62,9 @@ post '/' do
   #send_fileは内部でhaltするので最後に書く。
   send_file("tmp/#{filename}", :disposition => "attachment")
 end
+
+
+
+
+#@@@@ マッチしないリクエストは'/'にリダイレクト。
+

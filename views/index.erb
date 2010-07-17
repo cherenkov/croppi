@@ -85,9 +85,9 @@
         </div>
       </div>
     </div>
-    <canvas id="c1"></canvas>
-    <div id="footer_menu">
-      <div id="footer_file"></div>
+    <canvas id="canvas"></canvas>
+    <div id="footerMenu">
+      <div id="footer_file"></div><!--参照ボタンいらない？-->
       <div>
         <input id="checkBtn" type="checkbox" />
         <label for="checkBtn" id="checkBtnLabel">&#11034;</label>
@@ -110,5 +110,8 @@
         </form>
       </div>
     </div>
+    <!--<div id="api_dataURL"><%= @api_dataURL %></div>-->
+    <input id="api_fileName" type="hidden" value="<%= @api_fileName %>"/>
+    <input id="api_dataURL" type="hidden" value="<%= @api_dataURL %>"/>
   </body>
 </html>

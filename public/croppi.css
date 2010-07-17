@@ -1,4 +1,4 @@
-#c1 {
+#canvas {
   display: none;
   position: fixed;
   bottom: 100px;
@@ -14,6 +14,7 @@
 
 #zo {
   position: relative;
+  padding-right: 8px; /*大きな画像の場合に右端が少しだけ見えるように*/
 }
 
 #area {
@@ -49,12 +50,19 @@
 	height: 6px;
 }
 
+::selection {
+    background: translate;
+}
+::-moz-selection {
+    background: translate;
+}
 
-#footer_menu {
-	width: 510px;
+#footerMenu {
+	width: 488px;
+	height: 35px;
 	display: none;
 	position: fixed;
-	bottom: 10px;
+	bottom: 15px;
 	z-index: 300;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -68,11 +76,9 @@
 	-o-box-shadow: 5px 5px 5px #000;
 	-box-shadow: 5px 5px 5px #000;
 	background-image: url(images/content_bg.gif);
-	-moz-user-select: none;
-	-webkit-user-select: none;
 }
 
-#footer_menu > div {
+#footerMenu > div {
   float: left;
 }
 
