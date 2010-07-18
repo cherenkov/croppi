@@ -6,13 +6,12 @@ require 'kconv'
 require 'net/http'
 require 'uri'
 
-# reloader
 #require 'sinatra/base'
 #require 'sinatra/reloader' if development?
 
 
 before do
-  if params[:url] then
+  if request.path_info == '/' && params[:url] then
     uri = URI.parse(URI.encode(params[:url]))
     begin
       Net::HTTP.start(uri.host) {|http|
@@ -35,10 +34,7 @@ end
 
 
 post '/' do
-  #適当なチェック
-  unless params[:imagedata] && params[:filename]
-    redirect "/"
-  end
+  redirect "/" unless params[:imagedata] && params[:filename]
 
   #dataURIをバイナリに変換
   imagedata = Base64.decode64(params[:imagedata].gsub(/^data:image\/png;base64,/, ""))
@@ -65,4 +61,3 @@ end
 not_found do
   redirect '/'
 end
-
