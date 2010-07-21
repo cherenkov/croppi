@@ -18,10 +18,9 @@ function init() {
 }
 
 function apiInterface() {
-  var api_fileName = decodeURIComponent($('#api_fileName').val());
-  var api_dataURL = $('#api_dataURL').val();
-  if(api_dataURL)
-    loadImage(api_dataURL, api_fileName);
+  var data = $.parseJSON($('#api_data').text())
+  if(data[1] != "")
+    loadImage(data[1], decodeURIComponent(data[0]));
 }
 
 function drop(e) {
@@ -164,7 +163,7 @@ function loadImage(data, fileName) {
     $(this).width("auto").height("auto");
     $.data($(this)[0], "croppi", {width: $(this).width(), height: $(this).height()});
 
-    ///slide時にページの高さが伸び縮みする対策の味付け。
+    //slide時にページの高さが伸び縮みする対策の味付け。
     area.height(footerMenu.outerHeight()+20)
       //backと位置合わせ。リサイズしたときにtopが効いてくる
       .width($(this).width())
@@ -176,8 +175,6 @@ function loadImage(data, fileName) {
     //widthが決まるこのタイミングでmarginをセット
     $('#zo').width($('#back').width()).css("margin","0 auto");
 
-    //操作パネルを中央に
-    footerMenu.css("left",(window.innerWidth - footerMenu.outerWidth())/2);
 
     changeTitle(fileName);
     $('#about').hide();
@@ -189,6 +186,9 @@ function loadImage(data, fileName) {
 
     if($('#checkBtn').attr('checked'))
       setCropSize();
+
+    //操作パネルを中央へ
+    $(window).trigger('resize');
 
     //設定が済んで表示
     $(document.body).animate({opacity:1});
