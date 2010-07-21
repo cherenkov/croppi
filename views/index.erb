@@ -7,6 +7,7 @@
     <script src="Jcrop/js/jquery.Jcrop.js"></script>
     <script src="jquery-spinbox/jquery.spinbox.js"></script>
     <script src="croppi.js"></script>
+    <script id="api_data" type="croppi_api">["<%= @api_fileName %>","<%= @api_dataURL %>"]</script>
     <link href="jquery-ui-1.8.2/css/smoothness/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
     <link href="Jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
     <link href="jquery-spinbox/jquery.spinbox.css" rel="stylesheet" type="text/css" />
@@ -110,7 +111,5 @@
         </form>
       </div>
     </div>
-    <input id="api_fileName" type="hidden" value="<%= @api_fileName %>"/>
-    <input id="api_dataURL" type="hidden" value="<%= @api_dataURL %>"/>
   </body>
 </html>

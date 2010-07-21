@@ -6,8 +6,8 @@ require 'kconv'
 require 'net/http'
 require 'uri'
 
-#require 'sinatra/base'
-#require 'sinatra/reloader' if development?
+require 'sinatra/base'
+require 'sinatra/reloader' if development?
 
 
 before do
@@ -18,9 +18,12 @@ before do
         res = http.request_get(uri.path)
         redirect "/" unless res['content-type'].include?("image/")
 
-        @api_dataURL = "data:" + res['content-type'] + ";base64," + Base64.encode64(res.body)
+        @api_dataURL = "data:" + res['content-type'] + ";base64," + Base64.encode64(res.body).gsub(/\n/,"")
       }
       @api_fileName = File.basename(uri.path).tosjis
+      
+      #JSONにしたい。日本語ファイル名も考慮してエンコードせよ
+      
     rescue
       redirect '/'
     end
