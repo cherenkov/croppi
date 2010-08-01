@@ -4,7 +4,7 @@
     <title>Croppi!</title>
     <script src="jquery-ui-1.8.2/js/jquery-1.4.2.min.js"></script>
     <script src="jquery-ui-1.8.2/js/jquery-ui-1.8.2.custom.min.js"></script>
-    <script src="Jcrop/js/jquery.Jcrop.js"></script>
+    <script src="Jcrop/js/jquery.Jcrop.min.js"></script>
     <script src="jquery-spinbox/jquery.spinbox.js"></script>
     <script src="croppi.js"></script>
     <script id="api_data" type="croppi_api">["<%= @api_fileName %>","<%= @api_dataURL %>"]</script>
@@ -12,6 +12,16 @@
     <link href="Jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
     <link href="jquery-spinbox/jquery.spinbox.css" rel="stylesheet" type="text/css" />
     <link href="croppi.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6042226-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   </head>
   <body>
     <h1 id="title">
