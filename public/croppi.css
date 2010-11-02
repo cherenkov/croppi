@@ -1,3 +1,24 @@
+/* float clearing for IE6 */
+* html div{
+  height: 1%;
+  overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html div{
+  min-height: 1%;
+}
+
+/* float clearing for everyone else */
+div:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+
 #canvas {
   display: none;
   position: fixed;
@@ -30,12 +51,12 @@
 
 #sl {
   width: 120px;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-left: 20px;
 }
 
 #sc {
-	margin-top: 2px;
+	margin-top: 5px;
 	margin-right: 10px;
 	margin-bottom: 0;
 	margin-left: 20px;
@@ -46,13 +67,10 @@
 	position: relative;
 	top: -7px;
 }
-#cb form {
-	height: 6px;
-}
 
 #footerMenu {
-	width: 492px;
-	height: 35px;
+	width: 540px;
+	height: 30px;
 	display: none;
 	position: fixed;
 	bottom: 15px;
@@ -62,7 +80,7 @@
 	-moz-border-radius: 10px;
 	padding-top: 10px;
 	padding-right: 15px;
-	padding-bottom: 6px;
+	padding-bottom: 10px;
 	padding-left: 15px;
 	-moz-box-shadow: 2px 2px 5px #000;
 	-webkit-box-shadow: 2px 2px 5px #000;
@@ -77,10 +95,15 @@
 }
 
 .ui-button-text {
-  font-size: 1.2em;
-  padding: 0 !important;
-  width: 25px;
-  line-height: normal !important;
+	font-size: 1.2em;
+	width: 25px;
+	line-height: 1 !important;
+	padding-top: 0 !important;
+	padding-right: 0 !important;
+	padding-bottom: 5px !important;
+	padding-left: 0 !important;
+  display:block;
+  float:left;
 }
 
 #lr, #ud {
@@ -88,25 +111,42 @@
 }
 
 #lr {
-  margin-left: 15px;
-  font-size: 1.5em;
-  font-weight: bold;
+	margin-left: 15px;
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 1 !important;
+	display:block;
+	float:left;
+	margin-right: 5px;
 }
 
 #ud {
   margin-left: 5px;
   font-size: 1.5em;
   font-weight: bold;
-
+  line-height: 1 !important;
+  padding-top: 5px !important;
+  display:block;
+  float:left;
 }
 
 #inputWidth, #inputHeight {
-  width: 54px;
+	width: 54px;
+	display:block;
+	float:left;
+	margin-right: 10px;
+	margin-top: 5px;
 }
-
+#checkBtnLabel {
+  display:block;
+  float:left;
+}
 #cropBtn {
-  font-size: 1.8em;
-  padding: 0;
+	font-size: 1.2em;
+	padding: 0;
+	font-weight: bold;
+	margin-top: 7px;
+	line-height: 30px;
 }
 
 
