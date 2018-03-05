@@ -16,7 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler
+  bundler (= 1.15.2)
   rack
   sinatra
 
