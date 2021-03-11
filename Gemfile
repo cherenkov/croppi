@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.3.4'
+ruby '2.6.6'
 gem "rack"
 gem 'sinatra'
 gem 'bundler', '1.15.2'
